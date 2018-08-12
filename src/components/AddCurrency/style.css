@@ -1,0 +1,16 @@
+form select {
+  width: calc(100% - 100px);
+}
+form select:focus {
+  outline: 0;
+}
+form button {
+  width: 100px;
+}
+
+form > * {
+    height: 36px;
+    line-height:  36px;
+    border: 0;
+    padding: 0;
+}
