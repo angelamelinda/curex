@@ -1,0 +1,12 @@
+.box-shadow {
+  box-shadow: 1px 1px 10px rgba(0,0,0,.1);
+}
+.color-danger {
+  color: #e00;
+}
+.max-w-200 {
+  max-width: 200px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
