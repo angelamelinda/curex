@@ -1,0 +1,6 @@
+.list-currency > div:first-of-type {
+  width: calc(100% - 50px);
+}
+.list-currency > div:last-of-type {
+  width: 50px;
+}
