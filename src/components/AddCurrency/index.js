@@ -53,22 +53,17 @@ class AddCurrency extends Component {
         this.state.isActive ? (
             <form onSubmit={this.handleSubmit} className="box-shadow">
               <select ref={(el) => this.selectedOption = el}>
-                <option value="USD">USD</option>
-                <option value="CAD">CAD</option>
-                <option value="IDR">IDR</option>
-                <option value="GBP">GBP</option>
-                <option value="CHF">CHF</option>
-                <option value="SGD">SGD</option>
-                <option value="INR">INR</option>
-                <option value="MYR">MYR</option>
-                <option value="JPY">JPY</option>
-                <option value="KRW">KRW</option>
+                {
+                  Object.keys(this.props.currencies.rates).map((key) => {
+                    <option value={key}>{key}</option>
+                  })
+                }
               </select>
               <button type="submit" className="cursor-pointer">Submit</button>
             </form>
         ) : (
             <React.Fragment>
-              <div id="Add Currency" className="cursor-pointer" onClick={this.handleShowOption}>(+) Add More Currency</div>
+              <div id="add-currency" className="cursor-pointer" onClick={this.handleShowOption}>(+) Add More Currency</div>
               {
                 this.state.existAlert != '' && <small className="d-block color-danger">{this.state.existAlert}</small>
               }
