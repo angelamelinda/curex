@@ -11,9 +11,9 @@ Enzyme.configure({ adapter: new Adapter()});
 describe('Homepage', () => {
   let props = helper.mockData();
   it('renders correctly', () => {
-    // search for the div which shown before the form
+
     const wrapper = shallow(
-        <Homepage {...props} ></Homepage>
+        <Homepage {...props} />
     );
 
     expect(toJson(wrapper),{mode:'shallow'}).toMatchSnapshot();
