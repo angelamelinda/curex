@@ -52,11 +52,11 @@ export class AddCurrency extends Component {
       <React.Fragment>
       {
         this.state.isActive ? (
-            <form onSubmit={this.handleSubmit} className="box-shadow">
+            <form onSubmit={this.handleSubmit} className="box-shadow" id="add-currency-form">
               <select ref={(el) => this.selectedOption = el}>
                 {
-                  Object.keys(this.props.currencies.rates).map((key) => (
-                    <option value={key}>{key}</option>
+                  Object.keys(this.props.currencies.rates).map((key,id) => (
+                    <option value={key} key={id}>{key}</option>
                   ))
                 }
               </select>
