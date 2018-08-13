@@ -6,6 +6,7 @@ import ListCurrency from '../../components/ListCurrency';
 import AddCurrency from '../../components/AddCurrency';
 import { RequestCurrencyData } from '../../redux/Action/action_currency';
 import { RequestConvertChangeAmount } from '../../redux/Action/action_convertion';
+import { isEmpty, filterFloat } from '../../helper';
 
 class Homepage extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Homepage extends Component {
     this.props.RequestCurrencyData();
   }
   handleChange(e) {
-    let amount = this.filterFloat(e.target.value),
+    let amount = filterFloat(e.target.value),
         currencyData = {
           amount : amount,
           listCurrency: this.props.listConvertedCurrency,
@@ -31,7 +32,7 @@ class Homepage extends Component {
     // Will edit the list converted currency if
     // 1. The list converted currecy is exist
     // 2. The amount is not a number
-    if(!this.isEmpty(this.props.listConvertedCurrency) && !isNaN(amount)) {
+    if(!isEmpty(this.props.listConvertedCurrency) && !isNaN(amount)) {
       this.props.RequestConvertChangeAmount(currencyData);
     }
 
@@ -50,57 +51,18 @@ class Homepage extends Component {
       })
     }
   }
-  filterFloat(value) {
-    if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
-      .test(value))
-      return Number(value);
-    return NaN;
-  }
-  isEmpty(obj) {
-    for (var key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        return false;
-      }
-      return true;
-    }
-  }
-  getCurrencyName(sym) {
-    switch (sym) {
-      case "USD":
-        return "United State Dollar"
-      case "CAD":
-        return "Canadian Dollar"
-      case "IDR":
-        return "Indonesia Rupiah"
-      case "GBP":
-        return "British Pound"
-      case "CHF":
-        return "Swiss Franc"
-      case "SGD":
-        return "Singapore Dollar"
-      case "INR":
-        return "India Rupee"
-      case "MYR":
-        return "Malaysia Ringgit"
-      case "JPY":
-        return "Japan Yen"
-      case "KRW":
-        return "Korea Won"
-      default:
-        break;
-    }
-  }
+  
   render() {
     return(
       <div className="container">
-        <BaseCurrency getCurrencyName={this.getCurrencyName} amountValue={this.state.amountValue} handleChange={this.handleChange} amountAlert={this.state.amountAlert}/>
+        <BaseCurrency amountValue={this.state.amountValue} handleChange={this.handleChange} amountAlert={this.state.amountAlert}/>
         <div className="p-sm-4 mb-5">
           {
             this.state.amountAlert == '' &&
             (
               <React.Fragment>
-                <ListCurrency getCurrencyName={this.getCurrencyName} isEmpty={this.isEmpty} filterFloat={this.filterFloat}/>
-                <AddCurrency amountValue={this.state.amountValue} filterFloat={this.filterFloat}/>
+                <ListCurrency/>
+                <AddCurrency amountValue={this.state.amountValue} />
               </React.Fragment>
             )
           }

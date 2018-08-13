@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { RequestConvertSelectedCurrency } from '../../redux/Action/action_convertion';
+import { filterFloat } from '../../helper';
 import './style.css';
 
-class AddCurrency extends Component {
+export class AddCurrency extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +23,7 @@ class AddCurrency extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let name = this.selectedOption.value,
-        amount = this.props.filterFloat(this.props.amountValue),
+        amount = filterFloat(this.props.amountValue),
         rate = this.props.currencies.rates[name],
         detailCurrency = {
           name : name,

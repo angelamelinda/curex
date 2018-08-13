@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { RequestDeleteCurrency } from '../../redux/Action/action_convertion';
+
+import { getCurrencyName } from '../../helper';
 import './style.css';
 
-class ListCurrency extends Component {
+export class ListCurrency extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -38,8 +40,8 @@ class ListCurrency extends Component {
                     }
                     </span>
                   </div>
-                  <div>{key} - {this.props.getCurrencyName(key)}</div>
-                  <div>1 USD = {key} {
+                  <div>{key} - {getCurrencyName(key)}</div>
+                  <div>1 {this.props.currencies.base} = {key} {
                     this.props.currencies.rates[key] < 1000000 ? (
                       this.props.currencies.rates[key].toLocaleString(undefined, { minimumFractionDigits: 2,maximumFractionDigits: 4})
                     ) : (
