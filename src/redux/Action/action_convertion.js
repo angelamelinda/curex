@@ -22,7 +22,7 @@ export function RequestConvertChangeAmount(currencyData) {
 
 export function RequestDeleteCurrency(currencyData) {
   return dispatch => {
-    dispatch({type:'DELETING_REQUEST'});
+    dispatch({type:'CONVERTION_DELETING'});
     let listConvertedCurrency = {};
     Object.keys(currencyData.listCurrency).filter((key) => {
       return key != currencyData.currency
