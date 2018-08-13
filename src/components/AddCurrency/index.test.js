@@ -52,7 +52,7 @@ describe('AddCurrency', () => {
     expect(addcurrency().prop("RequestConvertSelectedCurrency")).toHaveBeenCalled();
   });
 
-  it('show warning when the currency is added and the currency is already in list', () => {
+  it('show warning when the currency is added and the currency is already in the list', () => {
       props.listConvertedCurrency = { USD: 1 };
       // simulate clicking on div to show form
       let div = addcurrency().find('div#add-currency');
@@ -63,7 +63,7 @@ describe('AddCurrency', () => {
       form.find('select').instance().value = "USD";
       form.simulate('submit');
 
-      let alert = addcurrency().find('span.color-danger');
+      let alert = addcurrency().find('small.color-danger');
       expect(alert.exists()).toBe(true);
   })
 
