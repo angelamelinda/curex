@@ -57,8 +57,9 @@ export function mockData() {
           SGD:1.3711592179,
           USD:1,
       },
-    }, listConvertedCurrency: {
-
+    },
+    listConvertedCurrency: {
+      USD:1
     },
 
     // actions

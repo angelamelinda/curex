@@ -49,7 +49,7 @@ export class ListCurrency extends Component {
                     )
                   }</div>
                 </div>
-                <div onClick={this.handleClick} data-currency={key} className="text-center align-self-center cursor-pointer">(-)</div>
+                <div onClick={this.handleClick} data-currency={key} className="text-center align-self-center cursor-pointer delete-currency">(-)</div>
               </div>
             </div>
           ))
