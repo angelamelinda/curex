@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Homepage renders correctly 1`] = `
+<div
+  className="container"
+>
+  <Connect(Component)
+    amountAlert=""
+    amountValue="1.00"
+    handleChange={[Function]}
+  />
+  <div
+    className="p-sm-4 mb-5"
+  >
+    <Connect(ListCurrency) />
+    <Connect(AddCurrency)
+      amountValue="1.00"
+    />
+  </div>
+</div>
+`;

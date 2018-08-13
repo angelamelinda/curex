@@ -8,7 +8,7 @@ import { RequestCurrencyData } from '../../redux/Action/action_currency';
 import { RequestConvertChangeAmount } from '../../redux/Action/action_convertion';
 import { isEmpty, filterFloat } from '../../helper';
 
-class Homepage extends Component {
+export class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,7 +51,7 @@ class Homepage extends Component {
       })
     }
   }
-  
+
   render() {
     return(
       <div className="container">
