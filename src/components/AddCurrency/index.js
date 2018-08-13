@@ -54,9 +54,9 @@ class AddCurrency extends Component {
             <form onSubmit={this.handleSubmit} className="box-shadow">
               <select ref={(el) => this.selectedOption = el}>
                 {
-                  Object.keys(this.props.currencies.rates).map((key) => {
+                  Object.keys(this.props.currencies.rates).map((key) => (
                     <option value={key}>{key}</option>
-                  })
+                  ))
                 }
               </select>
               <button type="submit" className="cursor-pointer">Submit</button>
