@@ -1,6 +1,7 @@
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import toJson from 'enzyme-to-json';
 
 import { AddCurrency } from './';
 import * as helper from '../../helper';
@@ -50,4 +51,26 @@ describe('AddCurrency', () => {
 
     expect(addcurrency().prop("RequestConvertSelectedCurrency")).toHaveBeenCalled();
   });
+
+  it('show warning when the currency is added and the currency is already in list', () => {
+      props.listConvertedCurrency = { USD: 1 };
+      // simulate clicking on div to show form
+      let div = addcurrency().find('div#add-currency');
+      div = div.first().simulate('click');
+
+      //after form is shown, change the value of the select and submit the form
+      let form = addcurrency().find('form#add-currency-form').first();
+      form.find('select').instance().value = "USD";
+      form.simulate('submit');
+
+      let alert = addcurrency().find('span.color-danger');
+      expect(alert.exists()).toBe(true);
+  })
+
+  it('matches with snapshot', () => {
+    const wrapper = shallow(
+        <AddCurrency {...props} />
+    );
+    expect(toJson(wrapper),{mode:'shallow'}).toMatchSnapshot();
+  })
 })

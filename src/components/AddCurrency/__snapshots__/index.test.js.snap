@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddCurrency matches with snapshot 1`] = `
+<Fragment>
+  <div
+    className="cursor-pointer"
+    id="add-currency"
+    onClick={[Function]}
+  >
+    (+) Add More Currency
+  </div>
+</Fragment>
+`;
