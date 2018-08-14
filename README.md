@@ -1,6 +1,6 @@
 ## Folder Structure
 
-This project's structure look like this:
+This project' structure look like this:
 
 ```
 curex/
@@ -51,3 +51,7 @@ curex/
   package.json
   README.md
 ```
+
+## Docker
+### Docker Port Configuration
+The Dockerfile supplied will expose the app to the port 3000
