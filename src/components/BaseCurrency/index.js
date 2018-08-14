@@ -12,7 +12,7 @@ export const BaseCurrency = (props) => {
         <div>
           <input type="text" onChange={props.handleChange} value={props.amountValue} className="pl-2 pr-2 font-weight-bold max-w-200"/>
           {
-            props.alert != '' && <small className="text-right color-danger d-block">{props.amountAlert}</small>
+            props.amountAlert != '' && <small className="text-right color-danger d-block">{props.amountAlert}</small>
           }
         </div>
       </div>
