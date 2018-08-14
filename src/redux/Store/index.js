@@ -5,7 +5,9 @@ import thunkMiddleware from "redux-thunk";
 import AllReducer from '../Reducer';
 
 const Store = createStore(AllReducer,
-  applyMiddleware(thunkMiddleware, logger)
+  applyMiddleware(thunkMiddleware,
+    // logger
+  )
 );
 
 export default Store;
