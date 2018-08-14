@@ -5,7 +5,6 @@ This project's structure look like this:
 ```
 curex/
   node_modules/
-  package.json
   public/
     index.html
     favicon.ico
@@ -45,4 +44,10 @@ curex/
     App.test.js
     index.css
     index.js
+  .dockerignore
+  .gitignore
+  Dockerfile
+  package.lock.json
+  package.json
+  README.md
 ```
